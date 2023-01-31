@@ -13,22 +13,24 @@ function draw(){
         fill(0, 150, 100);
         strokeWeight(10);
         beginShape();
-            vertex(-100, -100);
-            vertex(-100, 100,);
-            vertex(100, 100);
-            vertex(100, -100);
-                beginContour();
-                for(let i = 0; i < 50; i++)
-                {
-                    let ratio = i/50;
-                    let radians = ratio * TWO_PI
+            for(let i = 0; i < 4; i++)
+            {
+                let incr = PI / 2;
+                let radians = PI / 4 + i * incr;
+                vertex(cos(radians) * 2 * r, sin(radians) * 2 * r);
+            }
+            beginContour();
+            for(let i = 50; i > 0; i--)
+            {
+                let ratio = i/50;
+                let radians = ratio * TWO_PI
 
-                    x = cos(radians) * r;
-                    y = sin(radians) * r;
+                x = cos(radians) * r;
+                y = sin(radians) * r;
 
-                    vertex(x, y);
-                }
-                endContour();  
+                vertex(x, y);
+            }
+            endContour();  
         endShape(CLOSE);
     pop();
 
