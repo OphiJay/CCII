@@ -22,8 +22,8 @@ function draw() {
     for(let i = 0; i < 9; i++)
     {
         let p = i * 1/8;
-        let r = width/18;
-        let x = (width * i/9) + (r);
+        let r = width/18 -5 ;
+        let x = (width * i/9) + (width/18);
         let y = (height/2);
         fill(0);
         ellipse(x, y, r*2, r*2);
