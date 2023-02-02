@@ -1,25 +1,45 @@
-let phaseArg = 0;
-let speed = 0.001;
+// let phaseArg = 0;
+// let speed = 0.001;
+
+
 
 function setup() {
-    createCanvas(400, 400);
-   
+    createCanvas(800, 400); 
+    background(21, 103, 128);
 }
 
 function draw() {
-    background(150);
-    //text(test, 20, 20);
-    //phaseArg = map(mouseX, 0, width, 0, 1);
-    moonPhase([phaseArg]);  
-    phaseArg += speed;
-    if(phaseArg >1.0){
-        phaseArg =0;
-    }  
+
+    // noStroke();
+
+    // drawMoon(x, y, radius, [phaseArg]);  
+    // phaseArg += speed;
+    // if(phaseArg >1.0){
+    //     phaseArg =0;
+    // }  
+
+
+    for(let i = 0; i < 9; i++)
+    {
+        let p = i * 1/8;
+        let r = width/18;
+        let x = (width * i/9) + (r);
+        let y = (height/2);
+        fill(0);
+        ellipse(x, y, r*2, r*2);
+        drawMoon(x, y, r, p);
+
+
+    }
+
 }
 
-function moonPhase(phase){
+function drawMoon(x, y, r, p){
     
-    let radius = width/4;
+    let xPos = x;
+    let yPos = y;
+    let radius = r;
+    let phase = p;
     let lext;
     let rext;
 
@@ -32,9 +52,8 @@ function moonPhase(phase){
         rext = map(phase, 0.5, 1, -lext, lext);
     }
 
-    // New Moon
     push();
-    translate(width/2, height/2);
+    translate(xPos, yPos);
     fill(255);
     beginShape();
         vertex(0, radius);
