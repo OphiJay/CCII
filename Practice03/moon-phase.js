@@ -1,4 +1,5 @@
 let phaseArg = 0;
+let speed = 0.001;
 
 function setup() {
     createCanvas(400, 400);
@@ -10,7 +11,7 @@ function draw() {
     //text(test, 20, 20);
     //phaseArg = map(mouseX, 0, width, 0, 1);
     moonPhase([phaseArg]);  
-    phaseArg += 0.001;
+    phaseArg += speed;
     if(phaseArg >1.0){
         phaseArg =0;
     }  
