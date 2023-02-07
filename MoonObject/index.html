@@ -5,15 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Moon Phase</title>
         <style>
-            body {
-            padding: 10;
-            margin: 10;
-            background-color: rgb(49, 66, 89);
-            color: white;
-            text-align: center;
-            font-family:'Lucida Sans', sans-serif;
-            }
+
         </style>
+        <link rel="stylesheet" href="style.css">
         <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
     </head>
 
@@ -23,11 +17,18 @@
         <div id="moons"> 
            <script src="moon-phase.js"></script>
         </div>
-<!-- 
+
         <select id="phaseChooser" onchange="phaseIntake();">
-            <option value="1/8">New</option>
-            <option value="0">Full</option>
-        </select> -->
+            <option value="0">New</option>
+            <option value="0.125"> Waxing Cresent</option>
+            <option value="0.25">First Quarter</option>
+            <option value="0.375">Waxing Gibbous</option>
+            <option value="0.5">Full</option>
+            <option value="0.625">Waning Gibbous</option>
+            <option value="0.75">Third Quarter</option>
+            <option value="0.875">Waning Cresent</option>
+            <option value="5">Cycle</option>
+        </select>
 
 
         <script id="__bs_script__">//<![CDATA[

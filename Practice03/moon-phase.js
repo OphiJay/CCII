@@ -1,23 +1,10 @@
-// let phaseArg = 0;
-// let speed = 0.001;
-
-
 
 function setup() {
     createCanvas(1000, 400); 
-    background(21, 103, 128);
+    background(49, 66, 89);
 }
 
 function draw() {
-
-    // noStroke();
-
-    // drawMoon(x, y, radius, [phaseArg]);  
-    // phaseArg += speed;
-    // if(phaseArg >1.0){
-    //     phaseArg =0;
-    // }  
-
 
     for(let i = 0; i < 9; i++)
     {
@@ -28,11 +15,19 @@ function draw() {
         fill(0);
         ellipse(x, y, r*2, r*2);
         drawMoon(x, y, r, p);
+    }
+    // let phaseArg = phaseIntake;
+    // let speed = 0.001;
 
+    // drawMoon(x, y, radius, [phaseArg]);  
+    // phaseArg += speed;
+    // if(phaseArg >1.0){
+    //     phaseArg =0;
+    // }  
 
     }
+    
 
-}
 
 function drawMoon(x, y, r, p){
     
@@ -63,3 +58,10 @@ function drawMoon(x, y, r, p){
     pop();
 
 }
+
+
+
+// function phaseIntake() {
+//     var phaseIn = document.getElementById("phaseChooser").value;
+//     return phaseIn;
+// }
