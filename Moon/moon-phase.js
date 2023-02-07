@@ -19,17 +19,17 @@ function draw() {
     let y = height/3;
     ellipse(x, y, r*2, r*2);
 
-    // if (p == 5){
-    //     let phaseArg = 0;   
-    //     phaseArg +=0;
-    //         if (phaseArg > 1.0) {
-    //             phaseArg = 0;
-    //         }
-    //     drawMoon(x, y, r, phaseArg); 
-    // } else {
-    //     drawMoon(x, y, r, p); 
-    // }
-    drawMoon(x, y, r, p);
+    if (p == 1){
+        let phaseArg = 0;   
+        phaseArg +=0;
+            if (phaseArg > 1.0) {
+                phaseArg = 0;
+            }
+        drawMoon(x, y, r, phaseArg); 
+    } else {
+        drawMoon(x, y, r, p); 
+    }
+    //drawMoon(x, y, r, p);
 
     }  
     

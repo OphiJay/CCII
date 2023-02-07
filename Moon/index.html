@@ -14,10 +14,6 @@
 
     <body>
         <h1>Moon Phase</h1>
-        <div id="moons"> 
-           <script src="moon-phase.js"></script>
-        </div>
-
         <select id="phaseChooser" onchange="phaseIntake();">
             <option value="0">New</option>
             <option value="0.125"> Waxing Cresent</option>
@@ -27,9 +23,12 @@
             <option value="0.625">Waning Gibbous</option>
             <option value="0.75">Third Quarter</option>
             <option value="0.875">Waning Cresent</option>
-            <option value="5">Cycle</option>
+            <option value="1">Cycle</option>
         </select>
-
+        
+        <div id="moons"> 
+            <script src="moon-phase.js"></script>
+         </div>
 
         <script id="__bs_script__">//<![CDATA[
             document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.11'><\/script>".replace("HOST", location.hostname));
