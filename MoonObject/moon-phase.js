@@ -3,6 +3,7 @@ function setup() {
     var cnv = createCanvas(windowWidth, windowHeight);
     cnv.style('display', 'block'); 
     background(0);
+    phaseArg = 0; 
 }
 
 function windowResized() {
@@ -19,17 +20,16 @@ function draw() {
     let y = height/3;
     ellipse(x, y, r*2, r*2);
 
-    // if (p == 5){
-    //     let phaseArg = 0;   
-    //     phaseArg +=0;
-    //         if (phaseArg > 1.0) {
-    //             phaseArg = 0;
-    //         }
-    //     drawMoon(x, y, r, phaseArg); 
-    // } else {
-    //     drawMoon(x, y, r, p); 
-    // }
-    drawMoon(x, y, r, p);
+    if (p == 5){
+        phaseArg +=0.001;
+            if (phaseArg > 1.0) {
+                phaseArg = 0;
+            }
+        drawMoon(x, y, r, phaseArg); 
+    } else {
+        drawMoon(x, y, r, p); 
+    }
+
 
     }  
     
