@@ -12,20 +12,23 @@ let gMax = 100;
 let bMin = 150;
 let bMax = 100;
 
-let flowerCount = 0;
+let garden = [];
 
 
 function setup() {
     var cnv = createCanvas(windowWidth, windowHeight);
 	cnv.style('display', 'block');
-    //background(161, 184, 105);    
-    background(255);
+    background(161, 184, 105);    
 }
 
 function draw() {
+    background(161, 184, 105);  
 
-
+    for (flower in garden) {
+        garden[flower].draw(garden[flower]);
+    }
 }
+
 
 function Palette() {
     this.r = random(rMin, rMax);
@@ -44,10 +47,9 @@ function Flower(o, n, r, s, p) {
     this.radius = r;
     this.size = s;
     this.palette = p;
-
 }
 
-function createFlower () {
+function createFlower() {
     var flower = new Flower(
         new Point(mouseX, mouseY), //orgin
         int(random(petalMin, petalMax)), //num
@@ -55,12 +57,11 @@ function createFlower () {
         random(sizeMin, sizeMax),//size
         new Palette()
     )
-    drawFlower(flower);
+    garden.push(flower);
     return flower;
 }
 
-function drawFlower(f)
-{ 
+Flower.prototype.draw = (f) => { 
     let orgin = f.orgin;
     let num = f.num;
     let radius = f.radius;
@@ -84,30 +85,25 @@ function drawFlower(f)
                       cos(angle) * radius - sin(angle) * walkout,
                       sin(angle) * radius + cos(angle) * walkout,      
                       0, 0)
-
-
     }
     endShape();
     pop();
-
-    flowerCount++;
-
 }
 
 function mouseClicked() {
     var flower = createFlower();
-    console.log(flower);
+    // console.log(flower);
     displayNumFlowers();
+    // console.log(garden);
 }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 
-
-
 function displayNumFlowers() {
     var text = document.getElementById("numFlowers");
-    text.innerHTML = flowerCount;
+    text.innerHTML = garden.length;
 }
+
 
