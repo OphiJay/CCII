@@ -9,18 +9,43 @@
     <body>
         <div id="pageHeader">
         <h1>~** Flower Power **~</h1>
-        <h2>Flowers in Your Garden: <span id="numFlowers">0</span></h2>
-        <h3>Click below to plant a flower!</h3>
         </div>
-        <div id="slidecontainer">
-            <h3>Adjust Max Values</h3>
+
+        <div id="slideoverhead" id="maxSliders">
+        <div class="slidecontainer">
+            <h3>Adjust Max Flower Values</h3>
             <input type="range" min="3" max="10" value="10" class="slider" id="petalMax">
-            <label for="petalMax">Number of Petals Max: <span id="petalNum"></span></label><br><span id="petalNum"></span>
+            <label for="petalMax">Number of Petals Max: <span id="petalNum"></span></label><br>
             <input type="range" min="20" max="100" value="100" class="slider" id="radiusMax">
-            <label for="radiusMax">Flower Radius Max: <span id="radiusNum"></span></label><br><span id="radiusNum"></span>
+            <label for="radiusMax">Flower Radius Max: <span id="radiusNum"></span></label><br>
             <input type="range" min="1" max="4" value="4" class="slider" id="sizeMax">
-            <label for="sizeMax">Petal Size Max: <span id="sizeNum"></span></label><br><span id="sizeNum"></span>
+            <label for="sizeMax">Petal Size Max: <span id="sizeNum"></span></label><br>
         </div>
+        <div class="slidecontainer" id="colorMaxSliders">
+            <h3>Adjust Max Color Values</h3>
+            <input type="range" min="149" max="255" value="255" class="slider" id="redMax">
+            <label for="redMax">Red Max: <span id="redNum"></span></label><br> 
+            <input type="range" min="149" max="255" value="255" class="slider" id="greenMax">
+            <label for="greenMax">Green Max: <span id="greenNum"></span></label><br>
+            <input type="range" min="149" max="255" value="255" class="slider" id="blueMax">
+            <label for="blueMax">Blue Max: <span id="blueNum"></span></label><br>
+        </div>
+        <div class="slidecontainer" id="colorMinSliders">
+            <h3>Adjust Min Color Values</h3>
+            <input type="range" min="0" max="150" value="0" class="slider" id="redMin">
+            <label for="redMin">Red Max: <span id="redNumMin"></span></label><br> 
+            <input type="range" min="0" max="150" value="0" class="slider" id="greenMin">
+            <label for="greenMin">Green Max: <span id="greenNumMin"></span></label><br>
+            <input type="range" min="0" max="150" value="0" class="slider" id="blueMin">
+            <label for="blueMin">Blue Max: <span id="blueNumMin"></span></label><br>
+        </div>
+        </div>
+        <div id="flowerHeader"> 
+            <h2>Click below to plant a flower!</h2>
+            <h4>'F' to Plant a Flower | 'D' to remove last flower | Click & Drag center of the flower to move it</h4>
+            <h3>Flowers in Your Garden: <span id="numFlowers">0</span></h3>
+        </div>
+        <p>Average Flower:</p>
 
     </body>
 </html>
