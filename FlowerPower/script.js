@@ -2,7 +2,7 @@ let petalMin = 3;
 let petalMax = 10;
 let radiusMin = 20;
 let radiusMax = 100;
-let sizeMin = 1.5;
+let sizeMin = 1;
 let sizeMax = 3.5;
 
 let rMin = 20;
@@ -18,11 +18,11 @@ let garden = [];
 function setup() {
     var cnv = createCanvas(windowWidth, windowHeight);
 	cnv.style('display', 'block');
-    background(161, 184, 105);    
+    background(107, 142, 35);    
 }
 
 function draw() {
-    background(161, 184, 105);  
+    background(107, 142, 35);  
 
     for (flower in garden) {
         garden[flower].draw(garden[flower]);
@@ -50,6 +50,12 @@ function Flower(o, n, r, s, p) {
 }
 
 function createFlower() {
+
+    petalMax = checkMax('petalMax', 'petalNum');
+    radiusMax = checkMax('radiusMax', 'radiusNum');
+    sizeMax = checkMax('sizeMax', 'sizeNum');
+
+
     var flower = new Flower(
         new Point(mouseX, mouseY), //orgin
         int(random(petalMin, petalMax)), //num
@@ -57,6 +63,7 @@ function createFlower() {
         random(sizeMin, sizeMax),//size
         new Palette()
     )
+
     garden.push(flower);
     return flower;
 }
@@ -91,10 +98,14 @@ Flower.prototype.draw = (f) => {
 }
 
 function mouseClicked() {
-    var flower = createFlower();
-    // console.log(flower);
-    displayNumFlowers();
-    // console.log(garden);
+
+    if (mouseY >= 0) {
+        var flower = createFlower();
+        // console.log(flower);
+        displayNumFlowers();
+        // console.log(garden);
+    }
+
 }
 
 function windowResized() {
@@ -106,4 +117,16 @@ function displayNumFlowers() {
     text.innerHTML = garden.length;
 }
 
+function checkMax(id, displayNum) {
+    var slider = document.getElementById(id);
+    var output = document.getElementById(displayNum);
+    output.innerHTML = slider.value; // Display the default slider value
+    
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    } 
 
+    var varMax = slider.value;
+    return varMax;
+}

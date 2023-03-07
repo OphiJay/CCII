@@ -7,9 +7,20 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h1>Flower Power</h1>
-        <h2>Flowers: <span id="numFlowers">0</span></h2>
-
+        <div id="pageHeader">
+        <h1>~** Flower Power **~</h1>
+        <h2>Flowers in Your Garden: <span id="numFlowers">0</span></h2>
+        <h3>Click below to plant a flower!</h3>
+        </div>
+        <div id="slidecontainer">
+            <h3>Adjust Max Values</h3>
+            <input type="range" min="3" max="10" value="10" class="slider" id="petalMax">
+            <label for="petalMax">Number of Petals Max: <span id="petalNum"></span></label><br><span id="petalNum"></span>
+            <input type="range" min="20" max="100" value="100" class="slider" id="radiusMax">
+            <label for="radiusMax">Flower Radius Max: <span id="radiusNum"></span></label><br><span id="radiusNum"></span>
+            <input type="range" min="1" max="4" value="4" class="slider" id="sizeMax">
+            <label for="sizeMax">Petal Size Max: <span id="sizeNum"></span></label><br><span id="sizeNum"></span>
+        </div>
 
     </body>
 </html>
