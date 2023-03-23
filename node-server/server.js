@@ -23,7 +23,7 @@ const toBool = [() => true, () => false];
 
 const prepareFile = async (url) => {
   const paths = [STATIC_PATH, url];
-  if (url.endsWith('/')) paths.push('index.html');
+  if (url.endsWith('/')) paths.push('draw.html');
   const filePath = path.join(...paths);
   const pathTraversal = !filePath.startsWith(STATIC_PATH);
   const exists = await fs.promises.access(filePath).then(...toBool);
@@ -33,6 +33,8 @@ const prepareFile = async (url) => {
   const stream = fs.createReadStream(streamPath);
   return { found, ext, stream };
 };
+
+var dataPack = {};
 
 http.createServer(async (req, res) => {
   //if(path.extname(req.url) === '')
@@ -47,10 +49,34 @@ http.createServer(async (req, res) => {
       console.log('Body: ' + body)
       var data = body.replace(/^data:image\/\w+;base64,/, "");
       var buf = Buffer.from(data, 'base64');
-      fs.writeFile('image.png', buf, () => {console.log("fie saved");});
+
+      var imgName = 'imgs/' + Date.now().toString() +  '.png';
+      fs.writeFile(imgName, buf, () => {console.log("file saved");}); //
+
+      fs.readFile('databse.json', (err, data) => {
+        if(err) {
+          console.log('error!');
+        }
+
+        //dataPack = JSON.parse(data); // errror crashing server
+
+        data[Object.keys(dataPack).length] = {url: imgName};
+
+  
+      });
+      
+      fs.writeFile('databse.json', JSON.stringify(data), (err, data) => {
+        if(err) {
+            console.log('error!')
+        } else {
+            console.log('okee dokee');
+        }
+      });
+
 
       res.writeHead(200, {'Content-Type': 'application/json'})
-      res.end('{post: received}')
+      //res.end({'post': 'received'})
+
     })
   } 
   else if(req.method === 'GET')
