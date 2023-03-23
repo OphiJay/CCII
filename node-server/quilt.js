@@ -1,3 +1,4 @@
+
 var sqaureSzize;
 
 function setup() {
@@ -16,36 +17,54 @@ function draw() {
 }
 
 
-// function getData(callback) {
-//     fetch('http://127.0.0.1:8000/databse.json', {mode : 'no-cors'})
-//     .then(response => response.json())
-//     .then(result => callback(result));
-// }
+$.getJSON('databse.json', function(data) {
+    //do stuff with your data here
+    console.log(data);
+
+    let dataKeys = Object.keys(data);
+    for(k of dataKeys) {
+        squares.push(data[k]);}
+});
+
+// $.getJSON( "databse.json", function(data) {
+//     var items = [];
+//     $.each( data, function( key, val ) {
+//       items.push( "<li id='" + key + "'>" + val + "</li>" );
+//     });
+   
+//     $( "<ul/>", {
+//       "class": "my-new-list",
+//       html: items.join( "" )
+//     }).appendTo( "body" );
+//   });
+
 
 let squares = [
-    {"url":"imgs/1679586125816.png"},
-    {"url":"imgs/1679586141304.png"},
-    {"url":"imgs/1679586496785.png"},
-    {"url":"imgs/1679586570780.png"},
-    {"url":"imgs/1679586583668.png"},
-    {"url":"imgs/1679586665323.png"},
-    {"url":"imgs/1679586125816.png"},
-    {"url":"imgs/1679586141304.png"},
-    {"url":"imgs/1679586125816.png"},
-    {"url":"imgs/1679586496785.png"}
+    {"url":"imgs/1679589917623.png"},
+    {"url":"imgs/1679589932774.png"},
+    {"url":"imgs/1679589943099.png"},
+    {"url":"imgs/1679589949727.png"},
+    {"url":"imgs/1679589955739.png"},
+    {"url":"imgs/1679589983085.png"},
+    {"url":"imgs/1679590011650.png"},
+    {"url":"imgs/1679590154372.png"},
+    {"url":"imgs/1679590170110.png"},
+    {"url":"imgs/1679590189745.png"}
+
+    // data as it will come from json ...
+    // {
+    // "0":{"url":"imgs/1679589917623.png"},
+    // "1":{"url":"imgs/1679589932774.png"},
+    // "2":{"url":"imgs/1679589943099.png"},
+    // "3":{"url":"imgs/1679589949727.png"},
+    // "4":{"url":"imgs/1679589955739.png"},
+    // "5":{"url":"imgs/1679589983085.png"},
+    // "6":{"url":"imgs/1679590011650.png"},
+    // "7":{"url":"imgs/1679590154372.png"},
+    // "8":{"url":"imgs/1679590170110.png"},
+    // "9":{"url":"imgs/1679590189745.png"}
+    //}   
 ];
-
-let done = [];
-
-// function saveData(data) {
-//     let dataKeys = Object.keys(data);
-//     for(k of dataKeys) {
-//         squares.push(data[k]);
-//     }
-
-// }
-
-// getData(saveData);
 
 
 function buildQuilt() {
@@ -66,7 +85,7 @@ function buildQuilt() {
 }
 
 function displayQuilt() {
-    var box = document.getElementById('quiltBox');
+    var box = document.getElementById('quiltBox'); // can change to jQuery later
 
     box.innerHTML = buildQuilt();
 
@@ -76,3 +95,22 @@ function displayQuilt() {
 
 
 window.addEventListener('load', displayQuilt);
+
+
+
+
+// function getData(callback) {
+//     fetch('http://127.0.0.1:8000/databse.json', {mode : 'no-cors'})
+//     .then(response => response.json())
+//     .then(result => callback(result));
+// }
+
+// function saveData(data) {
+//     let dataKeys = Object.keys(data);
+//     for(k of dataKeys) {
+//         squares.push(data[k]);
+//     }
+
+// }
+
+// getData(saveData);
